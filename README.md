@@ -1,10 +1,10 @@
 # This is milestoneProject_webGame
 
 ## Pokemon card match game: 
-//I will make a pokemon based card flip match game.
+//I will make a pokemon based card flip memory game.
 
 ### description: 
-//This game will have three difficulties for players to choose. The first difficulty will be the easy mode which contains 6 pairs of pokemon cards. Medium mode will add a little more difficulty to the game, there will be 9 pairs of the card in this mode. And finally the hard mode will add three more pairs of the card to the game.
+//This game will have 8 pairs of Pokemon cards needs to be matched fit in a container with 4*4 style layout. This game will be a chill easy game with no time limit or score board. 
 
 #### Requirements:
-//This game will have two different pages, the start page and the real game page.
+//Just need a little bit of memory and be patient about the process.
