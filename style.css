@@ -1,4 +1,19 @@
 /*some basic CSS for the game page */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    background: lightblue;
+}
+
+img {
+    width: 100px;
+}
+
 .pageContainer {
     width: 750px;
     margin: 0 auto;
@@ -12,7 +27,7 @@
     border: 1px solid black;
 }
 
-.gameGrid img{
+.gameGrid img {
     width: 150px;
     height: 150px;
 }
