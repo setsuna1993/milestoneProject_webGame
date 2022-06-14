@@ -10,24 +10,37 @@ body {
     background: lightblue;
 }
 
-img {
-    width: 100px;
-}
-
-.pageContainer {
-    width: 750px;
-    margin: 0 auto;
-}
-
-.gameGrid {
+.memory-game {
+    width: 1000px;
+    height: 800px;
+    position: relative;
+    left: 450px;
     display: flex;
     flex-wrap: wrap;
-    height: 600px;
-    width: 100%;
-    border: 1px solid black;
+    border: 2px solid rgb(146, 146, 66);
 }
 
-.gameGrid img {
-    width: 150px;
-    height: 150px;
+.memory-card {
+    padding: 0;
+    margin: 0;
+    width: 20%;
+    height: 25%;
+    position: relative;
+    border: 2px solid black;
+}
+
+.front-face,
+.back-face {
+    position: absolute;
+    border: 2px solid lightgrey;
+}
+
+img {
+    width: 196px;
+}
+
+h3 {
+    font-size: 3em;
+    position: relative;
+    left: 650px;
 }
