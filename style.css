@@ -5,42 +5,78 @@
     box-sizing: border-box;
 }
 
+/*the whole page*/
 body {
     height: 100vh;
+    display: flex;
     background: lightblue;
 }
 
+/*the game container*/
 .memory-game {
     width: 1000px;
     height: 800px;
-    position: relative;
-    left: 450px;
+    position: absolute;
+    left: 500px;
+    top: 100px;
     display: flex;
     flex-wrap: wrap;
     border: 2px solid rgb(146, 146, 66);
+    perspective: 1000px;
 }
 
+/*card container*/
 .memory-card {
-    padding: 0;
-    margin: 0;
-    width: 20%;
-    height: 25%;
+    width: calc(20% - 10px);
+    height: calc(25% - 10px);
     position: relative;
-    border: 2px solid black;
+    margin: 5px;
+    transform: scale(1);
+    transform-style: preserve-3d;
+    transition: transform .5s;
 }
 
+.memory-card:active {
+    transform: scale(.97);
+    trasition: transform .2s;
+}
+
+.memory-card.flip {
+    transform: rotateY(180deg);
+}
+
+/*cards front and back*/
 .front-face,
 .back-face {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
     position: absolute;
-    border: 2px solid lightgrey;
+    border-radius: 5px;
+    background-color: rgb(79, 72, 173);
+    backface-visibility: hidden;
 }
 
+.front-face {
+    transform: rotateY(180deg);
+}
+
+/*pokemon picture*/
 img {
     width: 196px;
 }
 
+/*title*/
 h3 {
     font-size: 3em;
     position: relative;
-    left: 650px;
+    left: 700px;
+}
+
+/*attempts and found bar*/
+p {
+    font-size: 1.5em;
+    position: absolute;
+    left: 900px;
+    top: 60px;
 }

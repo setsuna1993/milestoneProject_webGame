@@ -1,149 +1,66 @@
-/*Here is the 5*4 = 20 cards total list of pokemon picture*/
-document.addEventListener('DOMContentLoaded', () => {
+const cards = document.querySelectorAll('.memory-card');
+
+let hasFlippedCard = false;
+let lockBoard = false;
+let firstCard, secondCard;
+
+function flipCard() {
+    if(lockBoard) return;
+    if(this === firstCard) return;
     
-    const cardList = [
-        {
-            name: 'Pikachu',
-            image: 'assets/Pikachu.png'
-        },
-        {
-            name: 'Pikachu',
-            image: 'assets/Pikachu.png'
-        },
-        {
-            name: 'Eevee',
-            image: 'assets/Eevee.png'
-        },
-        {
-            name: 'Eevee',
-            image: 'assets/Eevee.png'
-        },
-        {
-            name: 'Meowth',
-            image: 'assets/Meowth.png'
-        },
-        {
-            name: 'Meowth',
-            image: 'assets/Meowth.png'
-        },
-        {
-            name: 'Wobbuffet',
-            image: 'assets/Wobbuffet.png'
-        },
-        {
-            name: 'Wobbuffet',
-            image: 'assets/Wobbuffet.png'
-        },
-        {
-            name: 'Bulbasaur',
-            image: 'assets/Bulbasaur.png'
-        },
-        {
-            name: 'Bulbasaur',
-            image: 'assets/Bulbasaur.png'
-        },
-        {
-            name: 'Charmander',
-            image: 'assets/Charmander.png'
-        },
-        {
-            name: 'Charmander',
-            image: 'assets/Charmander.png'
-        },
-        {
-            name: 'Squirtle',
-            image: 'assets/Squirtle.png'
-        },
-        {
-            name: 'Squirtle',
-            image: 'assets/Squirtle.png'
-        },
-        {
-            name: 'Chikorita',
-            image: 'assets/Chikorita.png'
-        },
-        {
-            name: 'Chikorita',
-            image: 'assets/Chikorita.png'
-        },
-        {
-            name: 'Totodile',
-            image: 'assets/Totodile.png'
-        },
-        {
-            name: 'Totodile',
-            image: 'assets/Totodile.png'
-        },
-        {
-            name: 'Cyndaquil',
-            image: 'assets/Cyndaquil.png'
-        },
-        {
-            name: 'Cyndaquil',
-            image: 'assets/Cyndaquil.png'
-        } 
-    ];
+    this.classList.add('flip');
 
-    cardList.sort( () => 0.5 - Math.random() );
-    const grid = document.querySelector('.gameGrid');
-    const attemptsHolder = document.querySelector('.attemptsHolder');
-    const foundHolder = document.querySelector('.foundHolder');
-    const cardsInGame = 10;
+    if(!hasFlippedCard) {
+        // first click
+        hasFlippedCard = true;
+        firstCard = this;
 
-    var attempts = 0;
-    var foundCards = 0;
-    attemptsHolder.textContent = attempts;
-    foundHolder.textContent = foundCards;
-
-    var chosenCards = [];
-    var chosenCardsIds = [];
-
-    function initiateBoard () {
-        for (var i=0; i < cardList.length; i++) {
-            var card = document.createElement('img');
-            card.setAttribute('src','assets/pokeballholder.png');
-            card.setAttribute('data-id', i);
-            card.addEventListener('click',flipCard);
-            grid.appendChild(card);
-        }
+        return;
     }
 
-    function flipCard() {
-        if(chosenCards.length !== 2){
-        var cardid = this.getAttribute('data-id');
-        if(this.getAttribute('src') != 'assets/blank.png') {
-            chosenCards.push(cardsList[cardId].name);
-            chosenCardIds.push(cardId);
-            this.setAttribute('src', cardsList[cardId].image);
-            if(chosenCards.length == 2) {
-                setTimeout(checkForMatch, 400);
-                }
-            }
-        }
+    // second click
+        hasFlippedCard = false;
+        secondCard = this;
+
+        checkForMatch()
     }
-    
+
 function checkForMatch() {
-        attempts++;
-        var cards = document.querySelectorAll('img');
-        var firstCard = chosenCardsIds[0];
-        var secondCard = chosenCardsIds[1];
-        if(chosenCards[0] == chosenCards[1]){
-            foundCards++;
-            cards[firstCard].setAttribute('src','assets/blank.png');
-            cards[secondCard].setAttribute('src','assets/blank.png');
-        }else{
-            cards[firstCard].setAttribute('src','assets/pokeballholder.png');
-            cards[secondCard].setAttribute('src','assets/pokeballholder.png');
-        }
-        chosenCards = [];
-        chosenCardsIds = [];
-        attemptsHolder.textContent = attempts;
-        foundHolder.textContent = foundCards;
-        if(foundCards == cardsInGame){
-            alert('Well done ! ')
-        }
+    let isMatch = firstCard.dataset.framework ===
+       secondCard.dataset.framework;
 
+    isMatch ? disableCards() : unflipCards();
 }
 
-    initiateBoard();
-})
+function disableCards() {
+    //It's a match!
+    firstCard.removeEventListener('click', flipCard);
+    secondCard.removeEventListener('click', flipCard);
+
+    resetBoard();
+}
+
+function unflipCards() {
+    lockBoard = true;
+    //not a match
+    setTimeout ( () => {
+    firstCard.classList.remove('flip');
+    secondCard.classList.remove('flip');
+    
+    resetBoard();
+    },1500);
+}
+
+function resetBoard() {
+    [hasFlippedCard, lockBoard] = [false, false];
+    [firstCard, secondCard] = [null, null]
+}
+
+(function shuffle() {
+    cards.forEach(card => {
+        let randomPos = Math.floor(Math.random()*20);
+        card.getElementsByClassName.order = randomPos;
+    });
+})();
+
+cards.forEach(card => card.addEventListener('click', flipCard))
