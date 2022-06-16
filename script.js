@@ -42,7 +42,6 @@ function disableCards() {
 
 function unflipCards() {
     lockBoard = true;
-    //not a match
     setTimeout ( () => {
     firstCard.classList.remove('flip');
     secondCard.classList.remove('flip');
@@ -59,7 +58,7 @@ function resetBoard() {
 (function shuffle() {
     cards.forEach(card => {
         let randomPos = Math.floor(Math.random()*20);
-        card.getElementsByClassName.order = randomPos;
+        card.style.order = randomPos;
     });
 })();
 

@@ -29,6 +29,7 @@ body {
 .memory-card {
     width: calc(20% - 10px);
     height: calc(25% - 10px);
+    display: flex;
     position: relative;
     margin: 5px;
     transform: scale(1);
@@ -66,17 +67,4 @@ img {
     width: 196px;
 }
 
-/*title*/
-h3 {
-    font-size: 3em;
-    position: relative;
-    left: 700px;
-}
-
-/*attempts and found bar*/
-p {
-    font-size: 1.5em;
-    position: absolute;
-    left: 900px;
-    top: 60px;
-}
+/*title-image*/
