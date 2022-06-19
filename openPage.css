@@ -3,110 +3,42 @@ body {
     margin:0;
     padding: 0;
     display: flex;
-    flex-direction: row;
-    flex-grow: 3;
-    justify-content: space-between;
-    flex-wrap: nowrap;
-    background-color:rgb(32, 177, 129);
 }
 
-#gaming-console {
-    margin: 0;
+#scene {
+    background-image: url(assets/scene1.jpg);
+    background-size: cover;
     position: absolute;
-    width: 1600px;
-    height: 900px;
-    left: 50px;
 }
 
 #start-page-background {
     position: absolute;
-    width: 415px;
-    height: 300px;
-    top: 112px;
-    left: 642px;
+    width: 1000px;
+    height: 800px;
+    top: 80px;
+    left: 500px;
+    opacity: 0.8;
+    border-radius: 50%;
 }
 
 #start-btn-img {
     position: absolute;
-    width: 150px;
-    height: 150px;
-    top: 260px;
-    left: 775px;
-}
-
-#bgm-ctrl {
-    position: relative;
-    display: flex;
-    left: 850px;
-}
-
-.rightside-img {
-    position: absolute;
-    display: block;
-    margin: 0;
-    width: 350px;
-    height: auto;
-    right: 100px;
-}
-
-.leftside-img {
-    position: absolute;
-    display: block;
-    margin: 0;
-    width: 350px;
-    height: auto;
-}
-
-.pikachu-eevee {
-    position: relative;
-    width: 300px;
+    width: 200px;
     height: 200px;
-    left: 50px;
-    margin-top:50px;
-    margin-bottom: 20px;
+    top: 600px;
+    left: 900px;
+    transform: scale(.97);
+    transition: transform .2s;
 }
 
-.happy-bulbasaur {
-    position: relative;
-    width: 300px;
-    height: 200px;
-    left: 180px;
-    margin-top:20px;
-    margin-bottom: 20px;
+.guide {
+    position: absolute;
+    top: 760px;
+    left: 900px;
+    font-size: 2em;
 }
 
-.cyndaquil {
-    position: relative;
-    width: 300px;
-    height: 300px;
-    left: 80px;
-    margin-top:20px;
-    margin-bottom: 20px;
-}
 
-.meowth {
-    position: relative;
-    width: 280px;
-    height: 280px;
-    right: -140px;
-    margin-top:20px;
-    margin-bottom: 20px;
-}
 
-.squirtle {
-    position: relative;
-    width: 280px;
-    height: 280px;
-    right: -20px;
-    margin-top:10px;
-    margin-bottom: 10px;
-}
 
-.totodile {
-    position: relative;
-    width: 280px;
-    height: 280px;
-    right: -80px;
-    margin-top:10px;
-    margin-bottom: 10px;
-}
+
